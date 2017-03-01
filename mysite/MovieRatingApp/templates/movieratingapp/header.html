@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Online Movie-TV Rating</title>
+
+		<!-- bootstrap -->
+		<link href = "css/bootstrap.min.css" rel = "stylesheet">
+		{% load staticfiles %} 												<!-- Only need to load this once. If it is called in header, no need to call it again in extended files. -->
+
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}" type="text/css"/>
+
+	</head>
+
+	<body background="{% static 'images/movieratingapp/darth_vader_armor_star_wars_film_hat_snow_93645_1920x1080.jpg'%}">
+
+		<!-- Navigation -->
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		    <div class="container">
+		        <!-- Brand and toggle get grouped for better mobile display -->
+		        <div class="navbar-header">
+		            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		                <span class="sr-only">Toggle navigation</span>
+		                <span class="icon-bar"></span>
+		                <span class="icon-bar"></span>
+		                <span class="icon-bar"></span>
+		            </button>
+		            <a class="navbar-brand" href="../common/routelist.php">Home</a>
+		        </div>
+		        <!-- Collect the nav links, forms, and other content for toggling -->
+		        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		            <ul class="nav navbar-nav">
+		                <li>
+		                    <a href="#">About</a>
+		                </li>
+		                <li>
+		                    <a href="#">Services</a>
+		                </li>
+		                <li>
+		                    <a href="#">Contact</a>
+		                </li>
+		            </ul>
+		        </div>
+		        <!-- /.navbar-collapse -->
+		    </div>
+		    <!-- /.container -->
+
+		</nav>
+
+		<div>
+			{% block content %}
+			{% endblock %}
+		</div>
+
+	</body>
+</html>
