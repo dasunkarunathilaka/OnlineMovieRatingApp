@@ -2,4 +2,21 @@
 
 {% block content %}
 
+	<div class="container jumbotron" style="width:50%;margin-top:10%;border-radius:10px;">
+		<h2 class="text-center"> Twitter Rating for {{movie_name}} is {{rating}} / 10.0</h1>
+	</div>
+
+	<div class="container jumbotron text-center col-md-6" style="background:##662283;height:40%;margin-bottom:10%;border-radius:10px; opacity: 0.7">
+		<h3 style="font-family: Impact; font-style: bold">Sample Tweets</h3>
+		<p style="font-size: 20px">{{firstText}}</p>
+		<p style="font-style: italic; font-size: 18px">--{{firstUser}}--</p>
+		<p>-----------------------------------------------------------------------------</p>
+		<p style="font-size: 20px">{{secondText}}</p>
+		<p style="font-style: italic; font-size: 18px">--{{secondUser}}--</p>
+	</div>
+
+	<div>
+		<iframe width="640" height="390" src={{ videoURL }} frameborder="0" allowfullscreen></iframe>
+	</div>
+
 {% endblock %}

@@ -2,9 +2,26 @@
 
 {% block content %}
 
-	<div class="container jumbotron" style="width:50%;margin-top:10%;border-radius:10px;">
-		<form action="searchResults" method="post" class="form-horizontal" style="margin-left:60px;width:95%;">
-									
+	<!-- <div class = 'btn-toolbar pull-right' style="position: absolute; top: 70px; right: 50px">
+			<a href="accounts/login" class="btn btn-lg btn-primary">Login <span class="glyphicon glyphicon-adjust"></span></a>
+	</div>
+
+
+	<div class = 'btn-toolbar pull-right' style="position: absolute; top: 70px; right: 180px">
+			<a href="accounts/signup" class="btn btn-lg btn-primary">Signup <span class="glyphicon glyphicon-globe"></span></a>
+	</div> -->
+
+
+	<div class="page-header" style="margin-top: 10%; margin-left: 10%; margin-right: 10%">
+  		<h1 class="text-center" style="font-size: 500%; color: #f4d4c8">Online Movie Rating Application</h1>
+	</div>
+
+
+
+	<div class="container jumbotron" style="width:50%;margin-top:4%;margin-left: 25%; border-radius:10px;">
+
+		<form action="searchresults" method="post" class="form-horizontal" style="margin-left:60px;width:95%;">
+		<!-- 'form action' takes the url as the parameter, it appends that url to the current one and then the system checks the urls.py for the action which needs to be taken for current url. -->
 
 			{% csrf_token %}
 		    <div class="form-group">
@@ -25,6 +42,17 @@
 		</form>
 	</div>
 
+	
+	<!-- <div class='page-header'>
+  		<div class='btn-toolbar pull-right'>
+    		<div class='btn-group'>
+      			<button type='button' class='btn btn-primary'>Button Text</button>
+    		</div>
+  		</div>
+	</div>
+ -->
+
+ <!-- ADDING A YOUTUBE VIDEO -->
 	<!-- <div><iframe width="640" height="390" src="https://www.youtube.com/embed/v1gTI4BOPUw" frameborder="0" allowfullscreen></iframe>
 	</div>
  -->

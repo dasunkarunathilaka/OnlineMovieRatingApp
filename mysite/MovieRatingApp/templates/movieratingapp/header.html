@@ -9,9 +9,11 @@
 		{% load staticfiles %} 												<!-- Only need to load this once. If it is called in header, no need to call it again in extended files. -->
 
 		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}" type="text/css"/>
+		<link rel="stylesheet" type="text/javascript" href="{% static 'js/bootstrap.min.js'%}">
 
 	</head>
 
+</div>
 	<body background="{% static 'images/movieratingapp/darth_vader_armor_star_wars_film_hat_snow_93645_1920x1080.jpg'%}">
 
 		<!-- Navigation -->
@@ -25,16 +27,18 @@
 		                <span class="icon-bar"></span>
 		                <span class="icon-bar"></span>
 		            </button>
-		            <a class="navbar-brand" href="../common/routelist.php">Home</a>
+		            <a class="navbar-brand" href="/movieratingapp/">Home</a>
 		        </div>
+<!-- We need to give an absloute value to the href as the path of the home page. The '/' at the begining will define the absoluteness. 
+('/' = 127.0.0.1:8000) 
+But this is a bad practise. You need to give this as a variable so it can be changed afterwards. Else it would be difficult to change later.
+-->
+
 		        <!-- Collect the nav links, forms, and other content for toggling -->
 		        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		            <ul class="nav navbar-nav">
+		            <ul class="nav navbar-nav"> 
 		                <li>
 		                    <a href="#">About</a>
-		                </li>
-		                <li>
-		                    <a href="#">Services</a>
 		                </li>
 		                <li>
 		                    <a href="#">Contact</a>
@@ -47,10 +51,38 @@
 
 		</nav>
 
+		{% if user.is_authenticated %}
+			<div class = 'btn-toolbar pull-right' style="position: absolute; top: 70px; right: 50px">
+				<a href="/movieratingapp/accounts/logout" class="btn btn-lg btn-primary">Logout <span class="glyphicon glyphicon-adjust"></span></a>
+			</div>
+
+			<h1>
+				<span class="label label-success", style="position: absolute; top: 70px; right: 180px">
+					<span class = "glyphicon glyphicon-user"></span>
+						{{ user.first_name }}
+				</span>
+			</h1>
+
+
+		
+		{% else %}
+			<div class = 'btn-toolbar pull-right' style="position: absolute; top: 70px; right: 50px">
+				<a href="/movieratingapp/accounts/login" class="btn btn-lg btn-primary">Login <span class="glyphicon glyphicon-adjust"></span></a>
+			</div>
+
+
+			<div class = 'btn-toolbar pull-right' style="position: absolute; top: 70px; right: 180px">
+					<a href="/movieratingapp/accounts/signup" class="btn btn-lg btn-primary">Signup <span class="glyphicon glyphicon-globe"></span></a>
+			</div>
+		{% endif %}
+
+
+
 		<div>
 			{% block content %}
 			{% endblock %}
 		</div>
+
 
 	</body>
 </html>

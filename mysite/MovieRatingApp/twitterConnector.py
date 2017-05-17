@@ -14,19 +14,15 @@ class twitterConnector(object):
 	auth.set_access_token(atoken, asecret)
 
 	api = tweepy.API(auth)
-	# These should be static variables, because they are same across all objects.
 
 
-	def searchTwitter(self, name):
-		
+	def searchTwitter(self, movieName):		
 		connectorObj = dbConnector.dbConnector()
-		# dbConnector class in dbConnector file.
+		# dbConnector class in dbConnector.py file.
 
 		connectorObj.deleteAll()
-		# delete previous search results from the database.
 
-		for tweet in tweepy.Cursor(self.api.search,lang = 'en', q = name).items(200):        
-		# 15-25 seconds for 200 tweets.
+		for tweet in tweepy.Cursor(self.api.search,lang = 'en', q = movieName).items(200):        
 		# Tweet objects are returned by Tweepy module. No need to have a seperate Tweet class.
 		# To access static variables inside a method, 'self.api'. Can also use 'twitterConnector.api'
 			
@@ -39,3 +35,7 @@ class twitterConnector(object):
 
 				connectorObj.saveTweet(username, tweetContent, publishedDate)
 				
+	
+	def numberOfTweets(self):
+		connectorObj = dbConnector.dbConnector()
+		return connectorObj.retrieveTweets().count()		
